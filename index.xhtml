@@ -74,6 +74,82 @@ for (a =[x1,x2,x3]){echo(a);}
 			And it is a good idea to explicitly size your model when preparing it for 3D-printing.
 		</p>
 	</section>
+	<section>
+		<h2>Cuboids</h2>
+		<p>
+			One basic 3D shape that <strong>OpenSCAD</strong> provides built-in support for is the <strong>cuboid</strong>.
+		</p>
+		<p>
+			To create a <strong>cuboid</strong> use the <code>cube</code> command.
+			For example:
+		</p>
+		<figure>
+<pre><code>
+cube([50,75,100]);
+</code></pre>
+		</figure>
+		<p>
+			The parameter to the <code>cube</code> command specifies the <em>width</em>, <em>length</em>, and <em>height</em> of the <strong>cuboid</strong>.
+			Note that the <code>cube</code> command will put one corner of the <strong>cuboid</strong> at the origin — <code>[0,0,0]</code>.
+		</p>
+	</section>
+	<section>
+		<h2>Spheres</h2>
+		<p>
+			Another basic 3D shape that <strong>OpenSCAD</strong> provides built-in support for is the <strong>sphere</strong>.
+		</p>
+		<p>
+			To create a <strong>sphere</strong> use the <code>sphere</code> command.
+			For example:
+		</p>
+<pre><code>
+sphere(20);
+</code></pre>
+		<p>
+			The paraemter to the <code>sphere<code> command specifies the <em>radius</em> of the <strong>sphere</strong>.
+			Note that the <code>sphere<code> command will put the center of the <strong>sphere</strong> at the origin — <code>[0,0,0]</code>.
+		</p>
+	</section>
+	<section>
+		<h2>Cylinders, Cones, and Truncated Cones</h2>
+		<p>
+			Three other basic 3D shape that <strong>OpenSCAD</strong> provides built-in support for is the <strong>cylinder</strong>, the <strong>cone</strong>, and the <strong>truncated cone</strong>.
+		</p>
+		<p>
+			To create a <strong>cylinder</strong>, <strong>cone</strong>, or <strong>truncated cone</strong> use the <code>cylinder</code> command.
+			For example, this is a <strong>cylinder</strong>:
+		</p>
+<pre><code>
+cylinder(h=50, r1=20, r2=20);
+</code></pre>
+		<p>
+			Note that <code>r1</code> and <code>r2</code> have the same value.
+			When <code>r1</code> and <code>r2</code> have the same value, you get a <strong>cylinder</strong> (rathe than a <strong>cone</strong> or a strong>truncated cone</strong>).
+		</p>
+		<p>
+			And, for example, this is a <strong>cone</strong>:
+		</p>
+<pre><code>
+cylinder(h=50, r1=20, r2=0);
+</code></pre>
+		<p>
+			In that example, <code>r2</code> is zero.
+			But having <code>r1</code> be zero (and <code>r2</code> not be zero) would also produce a <strong>cone</strong>.
+		</p>
+		<p>
+			And, for example, this is a <strong>truncated cone</strong>:
+		</p>
+<pre><code>
+cylinder(h=50, r1=20, r2=5);
+</code></pre>
+		<p>
+			In that example, <code>r2</code> is smaller than <code>r1</code> (and neither is zero).
+			But having <code>r1</code> be smaller than <code>r2</code> would also be a <strong>truncated cone</strong>.
+		</p>
+		<p>
+			Note that the <code>cylinder<code> command will put the center of one end of the bottom circle at the origin — <code>[0,0,0]</code>.
+		</p>
+	</section>
 </article>
 </main>
 </body>
