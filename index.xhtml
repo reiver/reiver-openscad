@@ -163,6 +163,31 @@ cylinder(h=50, r1=20, r2=5);
 import("3dbenchy.stl")
 </pre></code>
 	</section>
+	<section>
+		<h2>Centering</h2>
+		<p>
+			By default, a <strong>sphere</strong> is centered at the origin — <code>[0,0,0]</code>.
+			However, <strong>cuboids</strong>, <strong>cylinders</strong>, <strong>cones</strong>, and <strong>truncated cones</strong> are <em>not</em>, by default, cetered at the origin.
+		</p>
+		<p>
+			To make it so <strong>cuboids</strong>, <strong>cylinders</strong>, <strong>cones</strong>, and <strong>truncated cones</strong> are centered at the origin, use the <code>center=true</code> paramter.
+			For example:
+		</p>
+		<figure>
+<pre><code>
+cube([50,75,100], center=true);
+</code></pre>
+		</figure>
+		<p>
+			And:
+		</p>
+<pre><code>
+cylinder(h=50, r1=20, r2=5, center=true);
+</code></pre>
+		<p>
+			Etc.
+		</p>
+	</section>
 </article>
 </main>
 </body>
