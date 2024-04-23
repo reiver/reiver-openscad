@@ -1,0 +1,123 @@
+wiki/1
+
+§ OpenSCAD
+
+⸺ by Charles Iliya Krempeaux
+
+**OpenSCAD** is an [[open-source]] [[computer-aided-design]] (**CAD**) software application with its own built-in programming-language.
+
+Unlike many other //CAD// software applications which use a //GUI// to create, edit, and manipulate objects, **OpenSCAD** creates, edits, and manipulates objects via a scripting programming-language.
+For example:
+
+	cube([50,75,100]);
+
+**OpenSCAD** scripts are usually stored in ``.scad`` files.
+
+**OpenSCAD** includes many features similar to many imperative programming-languages; including:
+
+• variables,
+• control structures (such as if-statements and loops),
+• modules, and
+• libraries.
+
+For those already familiar with programming-languages such as C, C++, C#, D, Dart, Go, Java, JavaScript, PHP, and others — **OpenSCAD** uses curly-brackets.
+For example:
+
+	for (a =[x1,x2,x3]){echo(a);}
+
+**OpenSCAD** provides two main methods for 3D-modeling:
+
+• creating complex object from combinations of simpler shapes, and
+• extruding 2D shapes (contained in .dxf or .svg files) into 3D shapes.
+
+**OpenSCAD** is especially geared towards mechanical, rather than artistic, aspects of 3D computer-aided design.
+Thus **OpenSCAD** can be useful when one wants to create a model that one wants to 3D-print.
+
+§§ Units
+
+All dimensions in **OpenSCAD** are measured in (the somewhat confusingly named) "unit".
+
+The //convention// used by a lot of people doing 3D-printing is:
+
+	1 unit = 1 millimeter
+
+But **OpenSCAD** is in a sense unit-less.
+
+And it is a good idea to explicitly size your model when preparing it for 3D-printing.
+
+§§ Cuboids
+
+One basic 3D shape that **OpenSCAD** provides built-in support for is the **cuboid**.
+
+To create a **cuboid** use the ``cube`` command.
+For example:
+
+	cube([50,75,100]);
+
+The parameter to the ``cube`` command specifies the //width//, //length//, and //height// of the **cuboid**.
+Note that the ``cube`` command will put one corner of the **cuboid** at the origin — ``[0,0,0]``.
+
+§§ Spheres
+
+Another basic 3D shape that **OpenSCAD** provides built-in support for is the **sphere**.
+
+To create a **sphere** use the ``sphere`` command.
+For example:
+
+	sphere(20);
+
+The paraemter to the ``sphere`` command specifies the //radius// of the **sphere**.
+Note that the ``sphere`` command will put the center of the **sphere** at the origin — ``[0,0,0]``.
+
+§§ Cylinders, Cones, and Truncated Cones
+
+Three other basic 3D shape that **OpenSCAD** provides built-in support for is the **cylinder**, the **cone**, and the **truncated cone**.
+
+To create a **cylinder**, **cone**, or **truncated cone** use the ``cylinder`` command.
+For example, this is a **cylinder**:
+
+	cylinder(h=50, r1=20, r2=20);
+
+Note that ``r1`` and ``r2`` have the same value.
+When ``r1`` and ``r2`` have the same value, you get a **cylinder** (rathe than a **cone** or a **truncated cone**).
+
+And, for example, this is a **cone**:
+
+	cylinder(h=50, r1=20, r2=0);
+
+In that example, ``r2`` is zero.
+But having ``r1`` be zero (and ``r2`` not be zero) would also produce a **cone**.
+
+And, for example, this is a **truncated cone**:
+
+	cylinder(h=50, r1=20, r2=5);
+
+In that example, ``r2`` is smaller than ``r1`` (and neither is zero).
+But having ``r1`` be smaller than ``r2`` would also be a **truncated cone**.
+
+Note that the ``cylinder`` command will put the center of one end of the bottom circle at the origin — ``[0,0,0]``.
+
+§§ Importing 3D Models
+
+**OpenSCAD** has the ability to import shapes from other 3D applications if those shapes are stored in an **.stl file**.
+
+You can import these models with the ``import`` command.
+For example:
+
+	import("3dbenchy.stl")
+
+§§ Centering
+
+By default, a **sphere** is centered at the origin — ``[0,0,0]``.
+However, **cuboids**, **cylinders**, **cones**, and **truncated cones** are //not//, by default, cetered at the origin.
+
+To make it so **cuboids**, **cylinders**, **cones**, and **truncated cones** are centered at the origin, use the ``center=true`` paramter.
+For example:
+
+	cube([50,75,100], center=true);
+
+And:
+
+	cylinder(h=50, r1=20, r2=5, center=true);
+
+Etc.
